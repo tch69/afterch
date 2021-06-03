@@ -1,6 +1,6 @@
 SRC = L.c
 CC ?= cc
-PREFIX ?= ${HOME}/.local
+PREFIX ?= /usr/local
 
 all: L
 
