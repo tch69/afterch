@@ -9,6 +9,6 @@ i often place my right hand further to the right so i can hit the enter key easi
 
 -- clone the repo, if you don't know how to then you're dumb, really dumb
 
--- cd to it, then make install 
+-- cd to it, then make install with root permission
 
 *done*
