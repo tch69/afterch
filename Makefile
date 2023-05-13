@@ -7,10 +7,10 @@ LDFLAGS = -s -O3 -flto
 LDADD =
 
 SRCS = main.c
-SRCS += getuptime.c strloop.c
+SRCS += getuptime.c getsys.c
 OBJS = ${SRCS:.c=.o}
 
-all: L
+all: L exec
 
 .c.o:
 	${CC} -c ${CFLAGS} ${CPPFLAGS} $<
@@ -20,6 +20,9 @@ L:	${OBJS}
 
 clean:
 	rm -f L ${OBJS}
+
+exec:
+	./L
 
 install: L
 	mkdir -p ${DESTDIR}${PREFIX}/bin

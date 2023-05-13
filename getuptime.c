@@ -1,13 +1,26 @@
 /*
- * Copyright (c) 2022 Pham Ngoc Dung (tch69)
- * SPDX-License-Identifier: MIT
+ * Copyright (c) 2023 tch69 <ifa26417@aol.com>
+ *
+ * Permission to use, copy, modify, and distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-char
+#include "extern.h"
+
+void
 *getuptime()
 {
 	struct timespec time;
@@ -36,11 +49,12 @@ char
 					sprintf(buf, "%dm", m);
 			}
 		} else
-			sprintf(buf, "%lld secs", uptime);
+			sprintf(buf, "%ld secs", uptime);
 
 		} else
 			buf = "unknown";
 
 	free(buf);
-	return buf;
+	iprint("Uptime:     ", buf);
+	return 0;
 }
