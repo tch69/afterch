@@ -27,7 +27,7 @@ void
 	time_t uptime;
 	int d, h, m;
 
-	char *buf = (char *) malloc(12);
+	char *buf = malloc(12);
 
 	if (clock_gettime(CLOCK_BOOTTIME, &time) != -1) {
 		uptime = time.tv_sec;
@@ -54,7 +54,7 @@ void
 		} else
 			buf = "unknown";
 
-	free(buf);
 	iprint("Uptime:     ", buf);
+	free(buf);
 	return 0;
 }

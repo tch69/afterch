@@ -10,7 +10,7 @@ SRCS = main.c
 SRCS += getuptime.c getsys.c
 OBJS = ${SRCS:.c=.o}
 
-all: L exec
+all: L
 
 .c.o:
 	${CC} -c ${CFLAGS} ${CPPFLAGS} $<
@@ -20,9 +20,6 @@ L:	${OBJS}
 
 clean:
 	rm -f L ${OBJS}
-
-exec:
-	./L
 
 install: L
 	mkdir -p ${DESTDIR}${PREFIX}/bin
