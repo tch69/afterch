@@ -1,9 +1,10 @@
 SRC = L.c
 CC ?= cc
 PREFIX ?= /usr/local
-CFLAGS = -std=c99 -g0 -flto
+CFLAGS = -std=c99 -g0 -flto -Wall -Wextra -pedantic
 CPPFLAGS = -D_POSIX_SOURCE
 LDFLAGS = -s -O3 -flto
+CFADD =
 LDADD =
 
 SRCS = main.c
@@ -13,7 +14,7 @@ OBJS = ${SRCS:.c=.o}
 all: L
 
 .c.o:
-	${CC} -c ${CFLAGS} ${CPPFLAGS} $<
+	${CC} -c ${CFLAGS} ${CPPFLAGS} ${CFADD} $<
 
 L:	${OBJS}
 	${CC} -o L ${LDFLAGS} ${LDADD} ${OBJS}

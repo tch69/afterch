@@ -39,15 +39,13 @@ int
 main()
 {
 	char hostname[HOST_NAME_MAX + 1];
-	int i;
-
 	gethostname(hostname, sizeof(hostname));
 
 	printf("\n  %s--->%s     %s%s%s@%s%s%s\n", C_MAGENTA, C_RESET, C_GREEN,
 			getlogin(), C_YELLOW, C_RED, strtok(hostname, "."), C_RESET);
 	printf("  %s%s>%s\n", C_MAGENTA, strloop("-", 32), C_RESET);
 
-	void *func[] = { getsys(), getshell(), getterm(), getuptime() };
+	getsys(), getshell(), getterm(), getuptime();
 
 	palette();
 }
@@ -59,7 +57,7 @@ iprint(char *text, char *info)
 			text,  C_RESET, info);
 }
 
-void
+static void
 palette()
 {
 	int i, j;

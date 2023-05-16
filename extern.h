@@ -14,6 +14,13 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+void iprint(char *, char *);
+
+#ifdef _MAIN_C
+/*
+ * Colour codes defined here are not used to display the palette;
+ * we use loops instead.
+ */
 #define C_RESET 	"\033[0m"
 #define C_RED 		"\033[1;31m"
 #define C_GREEN 	"\033[1;32m"
@@ -23,13 +30,10 @@
 #define C_CYAN	 	"\033[1;36m"
 #define C_WHITE 	"\033[1;39m"
 
-void iprint(char *, char *);
-
-#ifdef _MAIN_C
 char *strloop(const char *restrict, const int);
-void *getshell(void) { iprint("Shell:      ", getenv("SHELL")); };
-void *getterm(void) { iprint("Terminal:   ", getenv("TERM")); };
-void *getsys(void);
-void *getuptime(void);
-void palette(void);
+void getsys(void);
+void getuptime(void);
+static void getshell(void) { iprint("Shell:      ", getenv("SHELL")); }
+static void getterm(void) { iprint("Terminal:   ", getenv("TERM")); }
+static void palette(void);
 #endif

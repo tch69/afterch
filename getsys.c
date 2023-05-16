@@ -22,7 +22,7 @@
 #include "extern.h"
 
 void
-*getsys()
+getsys()
 {
 	struct utsname sys;
 	uname(&sys);
@@ -48,6 +48,6 @@ void
 #endif
 	iprint("Kernel:     ", sys.release);
 
-	return 0;
+	return;
 }
 
