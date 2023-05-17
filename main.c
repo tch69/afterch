@@ -45,7 +45,7 @@ main()
 			getlogin(), C_YELLOW, C_RED, strtok(hostname, "."), C_RESET);
 	printf("  %s%s>%s\n", C_MAGENTA, strloop("-", 32), C_RESET);
 
-	getsys(), getshell(), getterm(), getuptime();
+	getsysname(), getkern(), getshell(), getterm(), getuptime();
 
 	palette();
 }
