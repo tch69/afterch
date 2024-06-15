@@ -7,8 +7,8 @@ LDFLAGS = -s -O3 -flto
 CFADD =
 LDADD =
 
-SRCS = main.c
-SRCS += getuptime.c getsys.c
+SRCS = getuptime.c getsysname.c getkern.c
+SRCS += main.c
 OBJS = ${SRCS:.c=.o}
 
 all: L

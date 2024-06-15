@@ -19,7 +19,7 @@
 #include "extern.h"
 
 void
-getsys()
+getkern()
 {
 	struct utsname sys;
 	uname(&sys);
