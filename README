@@ -1,0 +1,23 @@
+
+- Cái đéo chi ri?
+
+afterch. Là sản phẩm tạo ra khi t cố gắng bắt chước neofetch, afetch và cái
+trình hiện thông tin gì đó của ArchLabs (|_|).
+
+- Sao gọi là "afterch" mà không phải cái-khỉ-chó-chi-đó-fetch?
+
+Hồi còn xài afetch, đéo hiểu sao mà t không bao giờ có thể nhập đúng được
+tên nó trong lần gõ đầu tiên. Lúc nào nó cũng thành "afterch" hay cái chi đó
+từa tựa rứa. Sau này, khi t quyết định tự làm một cái cho riêng mình, t lấy
+cái tên afterch đó luôn.
+
+- afterch nhìn như reng?
+
+Coi "preview.png" đi. Đại loại hắn rứa.
+
+- Này chạy kiểu chi?
+
+`make`. Sau đó sẽ có cái tệp chạy tên "L" xuất hiện. Chạy nó là được.
+
+Thích cài đặt luôn thì `make install`. Thấy nó dở quá, muốn xóa đi
+thì `make uninstall`. CC, CFLAGS, LDFLAGS cứ đổi thoải mái.

@@ -49,7 +49,7 @@ getuptime(void)
 					sprintf(buf, "%dm", m);
 			}
 		} else
-			sprintf(buf, "%ld secs", uptime);
+			sprintf(buf, "%lld secs", uptime);
 
 		} else
 			buf = "unknown";

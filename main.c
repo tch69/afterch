@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022,2023 tch69 <ifa26417@aol.com>
+ * Copyright (c) 2022,2023,2024 tch69 <ifa26417@aol.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -26,18 +26,19 @@
 char
 *strloop(const char *restrict x, const int y)
 {
-	int i;
-	char *buf = (char *) malloc(strlen(x) + y - 1);
+	char *buf = (char *) malloc(strlen(x) * y);
 
-	for (i = 0; i < y; i++) strcat(buf, x);
+	for (int i = 0; i < y; i++) strcat(buf, x);
 
-	free(buf);
 	return buf;
+	free(buf);
 }
 
 int
 main()
 {
+	int i, j;
+	char *fgcodes[] = { "4", "10" };
 	char hostname[HOST_NAME_MAX + 1];
 	gethostname(hostname, sizeof(hostname));
 
@@ -46,22 +47,6 @@ main()
 	printf("  %s%s>%s\n", C_MAGENTA, strloop("-", 32), C_RESET);
 
 	getsysname(), getkern(), getshell(), getterm(), getuptime();
-
-	palette();
-}
-
-void
-iprint(char *text, char *info)
-{
-	printf("\n     %s->%s %s%s%s%s", C_CYAN, C_RESET, C_BLUE,
-			text,  C_RESET, info);
-}
-
-static void
-palette()
-{
-	int i, j;
-	char *fgcodes[] = { "4", "10" };
 
 	puts("\n");
 
@@ -73,4 +58,11 @@ palette()
 	}
 
 	puts("");
+}
+
+void
+iprint(char *text, char *info)
+{
+	printf("\n     %s->%s %s%s%s%s", C_CYAN, C_RESET, C_BLUE,
+			text,  C_RESET, info);
 }

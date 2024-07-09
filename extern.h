@@ -36,5 +36,4 @@ void getkern(void);
 void getuptime(void);
 static void getshell(void) { iprint("Shell:      ", getenv("SHELL")); }
 static void getterm(void) { iprint("Terminal:   ", getenv("TERM")); }
-static void palette(void);
 #endif
