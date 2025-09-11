@@ -21,7 +21,7 @@
 #include "extern.h"
 
 void
-getsysname()
+getsysname(void)
 {
 	struct utsname sys;
 	uname(&sys);

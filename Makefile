@@ -1,33 +1,28 @@
-SRC = L.c
-CC ?= cc
-PREFIX ?= /usr/local
-CFLAGS = -std=c99 -g0 -flto -Wall -Wextra -pedantic
-CPPFLAGS = -D_POSIX_SOURCE
-LDFLAGS = -s -O3 -flto
-CFADD =
-LDADD =
+CC 	?= cc
+PREFIX 	?= /usr/local
+CFLAGS 	= -O3 -march=native -pedantic
+LDFLAGS = -O3 -s
 
-SRCS = getuptime.c getsysname.c getkern.c
-SRCS += main.c
+SRCS = getuptime.c getsysname.c getkernver.c main.c
 OBJS = ${SRCS:.c=.o}
 
-all: L
+all: afterch
 
 .c.o:
 	${CC} -c ${CFLAGS} ${CPPFLAGS} ${CFADD} $<
 
-L:	${OBJS}
-	${CC} -o L ${LDFLAGS} ${LDADD} ${OBJS}
+afterch: ${OBJS}
+	${CC} -o afterch ${LDFLAGS} ${LDADD} ${OBJS}
 
 clean:
-	rm -f L ${OBJS}
+	rm -f afterch ${OBJS}
 
-install: L
+install: afterch
 	mkdir -p ${DESTDIR}${PREFIX}/bin
-	cp L ${DESTDIR}${PREFIX}/bin
-	chmod +x ${DESTDIR}${PREFIX}/bin/L
+	cp afterch ${DESTDIR}${PREFIX}/bin
+	chmod +x ${DESTDIR}${PREFIX}/bin/afterch
 
 uninstall:
-	rm -f ${DESTDIR}${PREFIX}/bin/L
+	rm -f ${DESTDIR}${PREFIX}/bin/afterch
 
 .PHONY: all clean install uninstall

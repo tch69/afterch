@@ -27,7 +27,7 @@ getuptime(void)
 	time_t uptime;
 	int d, h, m;
 
-	char *buf = malloc(32);
+	char buf[256];
 
 	if (clock_gettime(CLOCK_BOOTTIME, &time) != -1) {
 		uptime = time.tv_sec;
@@ -39,21 +39,20 @@ getuptime(void)
 			m = uptime / 60;
 
 			if (d > 0)
-				sprintf(buf, "%dd %dh %dm", d, h, m);
+				(void)sprintf(buf, "%dd %dh %dm", d, h, m);
 			if (h > 0 && m > 0)
-				sprintf(buf, "%dh %dm", h, m);
+				(void)sprintf(buf, "%dh %dm", h, m);
 			else {
 				if (h > 0)
-					sprintf(buf, "%dh", h);
+					(void)sprintf(buf, "%dh", h);
 				if (m > 0)
-					sprintf(buf, "%dm", m);
+					(void)sprintf(buf, "%dm", m);
 			}
 		} else
-			sprintf(buf, "%lld secs", uptime);
+			(void)sprintf(buf, "%ld secs", uptime);
 
 		} else
-			buf = "unknown";
+			(void)sprintf(buf, "unknown");
 
 	iprint("Uptime:     ", buf);
-	free(buf);
 }
